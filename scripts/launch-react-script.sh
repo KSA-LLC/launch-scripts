@@ -40,7 +40,9 @@ make configure
 ./configure --prefix=/usr --with-curl --with-expat
 make install
 
+cd ~
 # PARTIAL CHECKOUT (REACT ONLY)
+rm -rf build-scripts
 git clone \
   --depth 1 \
   --filter=blob:none \
@@ -50,10 +52,11 @@ git clone \
 cd build-scripts
 git checkout main -- react
 
-cd ..
 # PREPARE SERVER FOR REACT ENVIRONMENT
 . react/bootscript.sh
 
 # LAUNCH REACT WEB APP
+rm -rf react-app
+cd ~
 git clone https://$1:$2@github.com/KSA-LLC/react-app
 . react-app/bootscript.sh $3 $4
