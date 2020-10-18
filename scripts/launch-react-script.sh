@@ -1,34 +1,29 @@
 # TASK: launch a react app with firebase authentication
 # . launch-react-script.sh USERNAME TOKEN APPOWNER APPNAME
 
-if $1 == ""
+if [ -z "$1" ]
 then
 echo "Missing parameter USERNAME (i.e) . launch-react-script.sh USERNAME TOKEN APPOWNER APPNAME"
 exit
 fi
 
-if $2 == ""
+if [ -z "$2" ]
 then
 echo "Missing parameter TOKEN (i.e) . launch-react-script.sh USERNAME TOKEN APPOWNER APPNAME"
 exit
 fi
 
-if $3 == ""
+if [ -z "$3" ]
 then
 echo "Missing parameter APPOWNER (i.e) . launch-react-script.sh USERNAME TOKEN APPOWNER APPNAME"
 exit
 fi
 
-if $4 == ""
+if [ -z "$4" ]
 then
 echo "Missing parameter APPNAME (i.e) . launch-react-script.sh USERNAME TOKEN APPOWNER APPNAME"
 exit
 fi
-
-# BECOME SUPERUSER AND DIASBLE SUSELINUX
-sudo su -
-sudo setenforce 0
-cd ~
 
 # INSTALL GIT
 yum update -y
